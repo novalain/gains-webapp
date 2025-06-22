@@ -449,31 +449,53 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		
 			<script>
 
-				function handleDeepLink() {
-					const path = window.location.pathname;
-					const search = window.location.search;
+		function handleDeepLink() {
+			const path = window.location.pathname;
+			const search = window.location.search;
 
-					console.log("path: " + path);
-					console.log("search: " + search);
+			const params = getQueryParams();
+
+			console.log("queryParams: " + queryParams);
+
+			if (queryParams.name) {
+				console.log("name: " + queryParams.name);
+				document.querySelector('meta[property="og:title"]')?.setAttribute('content', `Recept: ${params.name}`);
+			}
+
+			console.log("path: " + path);
+			console.log("search: " + search);
+			
+			// If this is a recipe share link, try to open the app
+			if (path.startsWith('/recipe/')) {
+				// Try to open the app with custom scheme
+				const appUrl = `makromat://${path}${search}`;
+				window.location.href = appUrl;
+				// Fallback to app store after a delay
+				setTimeout(() => {
+				window.location.href = 'https://apps.apple.com/app/gains-makromat/id6737398853';
+				}, 2000);
+				return;
+			}
+	}
+
+	function getQueryParams() {
+			const params = {};
+			const queryString = window.location.search.substring(1); // remove '?'
+			const pairs = queryString.split("&");
+
+			for (const pair of pairs) {
+				const [key, value] = pair.split("=");
+				if (key) params[key] = decodeURIComponent(value || '');
+			}
+
+			return params;
+	}
+						
 					
-					// If this is a recipe share link, try to open the app
-					if (path.startsWith('/recipe/')) {
-						// Try to open the app with custom scheme
-						const appUrl = `makromat://${path}${search}`;
-						window.location.href = appUrl;
-						// Fallback to app store after a delay
-						setTimeout(() => {
-						window.location.href = 'https://apps.apple.com/app/gains-makromat/id6737398853';
-						}, 2000);
-						return;
-					}
-					}
-					
-					
-					window.addEventListener('load', function(ev) {
+		window.addEventListener('load', function(ev) {
 					console.log("load");
 					handleDeepLink();
-					});
+		});
 			</script>
 	</body>
 </html>
