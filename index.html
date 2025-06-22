@@ -452,6 +452,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				function handleDeepLink() {
 					const path = window.location.pathname;
 					const search = window.location.search;
+
+					console.log("path: " + path);
+					console.log("search: " + search);
 					
 					// If this is a recipe share link, try to open the app
 					if (path.startsWith('/recipe/')) {
@@ -466,21 +469,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					}
 					}
 					
-					function loadFlutterApp() {
-					// Download main.dart.js
-					_flutter.loader.loadEntrypoint({
-						serviceWorker: {
-						serviceWorkerVersion: serviceWorkerVersion,
-						},
-						onEntrypointLoaded: function(engineInitializer) {
-						engineInitializer.initializeEngine().then(function(appRunner) {
-							appRunner.runApp();
-						});
-						}
-					});
-					}
 					
 					window.addEventListener('load', function(ev) {
+					console.log("load");
 					handleDeepLink();
 					});
 			</script>
