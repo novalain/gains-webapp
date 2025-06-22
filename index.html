@@ -6,6 +6,13 @@
 -->
 <html>
 	<head>
+		  <!-- Open Graph meta tags for social sharing -->
+		<meta property="og:title" content="Amazing Recipe on Gains">
+		<meta property="og:description" content="Track your nutrition and discover great recipes">
+		<meta property="og:image" content="images/screen4.png">
+		<meta property="og:type" content="website">
+		
+
 		<title>Fractal by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -438,5 +445,44 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+
+		
+			<script>
+
+				function handleDeepLink() {
+					const path = window.location.pathname;
+					const search = window.location.search;
+					
+					// If this is a recipe share link, try to open the app
+					if (path.startsWith('/recipe/')) {
+						// Try to open the app with custom scheme
+						const appUrl = `makromat://${path}${search}`;
+						window.location.href = appUrl;
+						// Fallback to app store after a delay
+						setTimeout(() => {
+						window.location.href = 'https://apps.apple.com/app/gains-makromat/id6737398853';
+						}, 2000);
+						return;
+					}
+					}
+					
+					function loadFlutterApp() {
+					// Download main.dart.js
+					_flutter.loader.loadEntrypoint({
+						serviceWorker: {
+						serviceWorkerVersion: serviceWorkerVersion,
+						},
+						onEntrypointLoaded: function(engineInitializer) {
+						engineInitializer.initializeEngine().then(function(appRunner) {
+							appRunner.runApp();
+						});
+						}
+					});
+					}
+					
+					window.addEventListener('load', function(ev) {
+					handleDeepLink();
+					});
+			</script>
 	</body>
 </html>
