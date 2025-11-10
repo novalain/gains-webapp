@@ -13,7 +13,7 @@
   <meta property="og:site_name" content="Makromat">
   <meta property="og:title" content="Makromat - Räkna makron, upptäck recept och nå dina mål">
   <meta property="og:description" content="Sveriges bästa app för makroräkning. Spåra makron, upptäck recept och dela dina favoriter med en community som brinner för träning och hälsa.">
-  <meta property="og:image" content="https://makromat.app/images/screen4.png">
+  <meta property="og:image" content="https://makromat.app/images/gainslogo6.png">
   <meta property="og:url" content="https://makromat.app/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sv_SE">
@@ -22,7 +22,11 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Makromat - Räkna makron, upptäck recept och nå dina mål">
   <meta name="twitter:description" content="Sveriges bästa app för makroräkning. Spåra makron, upptäck recept och dela med community.">
-  <meta name="twitter:image" content="https://makromat.app/images/screen4.png">
+  <meta name="twitter:image" content="https://makromat.app/images/gainslogo6.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/gainslogo6.png">
+  <link rel="apple-touch-icon" href="images/gainslogo6.png">
   
   <!-- iOS Smart App Banner -->
   <meta name="apple-itunes-app" content="app-id=6737398853">
@@ -57,7 +61,7 @@
     "@type": "Organization",
     "name": "Novamitech AB",
     "url": "https://makromat.app",
-    "logo": "https://makromat.app/icons/Icon-512.png",
+    "logo": "https://makromat.app/images/gainslogo6.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "michael@makromat.app",
@@ -106,14 +110,14 @@
     }
     
     .logo {
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: #000;
+      display: flex;
+      align-items: center;
     }
     
-    nav.scrolled .logo {
-      color: #000;
+    .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
     }
     
     .nav-right {
@@ -569,6 +573,10 @@
       
       nav {
         padding: 1rem 1.5rem;
+      }
+      
+      .logo img {
+        height: 32px;
       }
       
       .nav-links {
