@@ -1,501 +1,839 @@
-<!DOCTYPE HTML>
-<!--
-	Fractal by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		  <!-- Open Graph meta tags for social sharing -->
-		<meta property="og:title" content="Amazing Recipe on Gains">
-		<meta property="og:description" content="Track your nutrition and discover great recipes">
-		<meta property="og:image" content="images/screen4.png">
-		<meta property="og:type" content="website">
-		
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Makromat - Sveriges bästa app för makroräkning och kaloriräkning. Spåra protein, kolhydrater och fett, upptäck recept och nå dina träningsmål. Gratis att ladda ner!">
+  <meta name="keywords" content="makroräknare, kaloriräknare, makromat, räkna makron, protein, kalorier, träning, recept, hälsa, fitness, näringsberäkning, viktminskning, muskeluppbyggnad">
+  <meta name="author" content="Novamitech AB">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://makromat.app/">
+  
+  <!-- Open Graph meta tags -->
+  <meta property="og:site_name" content="Makromat">
+  <meta property="og:title" content="Makromat - Räkna makron, upptäck recept och nå dina mål">
+  <meta property="og:description" content="Sveriges bästa app för makroräkning. Spåra makron, upptäck recept och dela dina favoriter med en community som brinner för träning och hälsa.">
+  <meta property="og:image" content="https://makromat.app/images/screen4.png">
+  <meta property="og:url" content="https://makromat.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Makromat - Räkna makron, upptäck recept och nå dina mål">
+  <meta name="twitter:description" content="Sveriges bästa app för makroräkning. Spåra makron, upptäck recept och dela med community.">
+  <meta name="twitter:image" content="https://makromat.app/images/screen4.png">
+  
+  <!-- iOS Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=6737398853">
 
-		<title>Fractal by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <title>Makromat - Makroräknare & Kaloriräknare | Räkna makron och upptäck recept</title>
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Makromat",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "iOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "SEK"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1200"
+    },
+    "description": "Räkna makron, upptäck recept och nå dina träningsmål med Makromat. Sveriges bästa app för makroräkning och näringsberäkning."
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Novamitech AB",
+    "url": "https://makromat.app",
+    "logo": "https://makromat.app/icons/Icon-512.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "michael@makromat.app",
+      "contactType": "Customer Service"
+    },
+    "sameAs": []
+  }
+  </script>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #111;
+      overflow-x: hidden;
+      background: #fff;
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    nav.scrolled {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #000;
+    }
+    
+    nav.scrolled .logo {
+      color: #000;
+    }
+    
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      opacity: 1;
+    }
+    
+    nav a.download-btn {
+      background: #000;
+      color: #fff;
+      padding: 0.6rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    
+    nav a.download-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .video-background video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: #fff;
+      max-width: 700px;
+      padding: 2rem;
+      animation: fadeInUp 1s ease;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    
+    .hero p {
+      font-size: 1.4rem;
+      font-weight: 400;
+      opacity: 0.95;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-cta {
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      padding: 1rem 2.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(255,255,255,0.2);
+    }
+    
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px rgba(255,255,255,0.3);
+    }
+    
+    /* App Showcase */
+    .app-showcase {
+      padding: 10rem 5% 8rem;
+      background: #fff;
+    }
+    
+    .showcase-container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    
+     .phones-grid {
+       display: grid;
+       grid-template-columns: repeat(4, 1fr);
+       gap: 3rem;
+       margin-bottom: 8rem;
+     }
+    
+    .phone-item {
+      text-align: center;
+    }
+    
+    .phone-mockup {
+      width: 100%;
+      max-width: 260px;
+      height: 520px;
+      margin: 0 auto 2.5rem;
+      background: #1a1a1a;
+      border-radius: 35px;
+      padding: 10px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    
+    .phone-mockup:hover {
+      transform: translateY(-10px);
+    }
+    
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border-radius: 28px;
+      overflow: hidden;
+    }
+    
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .phone-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 25px;
+      background: #1a1a1a;
+      border-radius: 0 0 15px 15px;
+      z-index: 10;
+    }
+    
+    .phone-item h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    
+    .phone-item p {
+      color: #666;
+      line-height: 1.7;
+      padding: 0 1rem;
+    }
+    
+    /* Features List */
+    .features-list {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .features-list h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+    
+    .features-box {
+      background: #f9f9f9;
+      border: 1px solid #e5e5e5;
+      border-radius: 16px;
+      padding: 3rem 3.5rem;
+    }
+    
+    .features-columns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem 4rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .feature-item {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.7;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .feature-item::before {
+      content: '✓';
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #000;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    
+    /* Blog Section */
+    .blog {
+      padding: 10rem 5% 8rem;
+      background: #f9f9f9;
+    }
+    
+    .blog-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0;
+    }
+    
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+    
+    .blog-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid #eee;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      cursor: pointer;
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+    
+    .blog-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+    
+    .blog-content {
+      padding: 2rem;
+    }
+    
+    .blog-date {
+      color: #999;
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    .blog-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    
+    .blog-card p {
+      color: #666;
+      line-height: 1.7;
+      margin: 0;
+    }
+    
+    /* Footer */
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 5rem 5% 3rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .footer-links a:hover {
+      opacity: 1;
+    }
+    
+    .footer-email {
+      margin-bottom: 2.5rem;
+      opacity: 0.7;
+      font-size: 0.95rem;
+    }
+    
+    .footer-email a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    
+    .footer-copyright {
+      opacity: 0.5;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    
+    .footer-seo {
+      margin-top: 2rem;
+      opacity: 0.4;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+     /* Responsive */
+     @media (max-width: 1200px) {
+       .phones-grid {
+         grid-template-columns: repeat(2, 1fr);
+         gap: 3rem;
+       }
+     }
+     
+     @media (max-width: 1024px) {
+       .hero h1 {
+         font-size: 3rem;
+       }
+       
+       .blog-grid {
+         grid-template-columns: repeat(2, 1fr);
+       }
+       
+       .features-columns {
+         grid-template-columns: 1fr;
+       }
+     }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+      }
+      
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .phones-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+      
+      nav {
+        padding: 1rem 1.5rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .nav-right {
+        gap: 1rem;
+      }
+      
+      .app-showcase {
+        padding: 6rem 1.5rem 4rem;
+      }
+      
+      .blog {
+        padding: 6rem 1.5rem 4rem;
+      }
+      
+      .section-header {
+        margin-bottom: 3rem;
+      }
+      
+      .features-box {
+        padding: 2rem 1.5rem;
+      }
+      
+      .features-columns {
+        gap: 1.5rem 2rem;
+      }
+      
+      footer {
+        padding: 3rem 1.5rem 2rem;
+      }
+    }
+    
+    /* Parallax Effect */
+    .parallax {
+      will-change: transform;
+      transition: transform 0.1s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="logo">Makromat</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#blog">Blogg</a></li>
+      </ul>
+      <a href="https://apps.apple.com/app/gains-makromat/id6737398853" class="download-btn">Ladda ner</a>
+    </div>
+  </nav>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="content">
-					<h1><a href="#">Makromat</a></h1>
-					<p>Dela hälsosamma recepts <br />
-						och maximera din träning
-					</p>
-					<ul class="actions">
-						<li>
-							<!-- <a style="border:0px;" href="https://apps.apple.com/app/id1551353775"> -->
-								<a style="border:0px;" href="https://apps.apple.com/">
-								<img 
-								style="border:0px !important; padding:0px;"
-								  class="button"
-							   src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1276560000&h=7e7b68fad19738b5649a1bfb78ff46e9" 
-								  >
-							  </a>
-					
-						</li>
-						<li><a href="#two" class="button icon solid fa-chevron-down scrolly">Läs mer</a></li>
-					</ul>
-				</div>
-				<div class="image phone"><div class="inner"><img src="images/screen4.png" alt="" /></div></div>
-			</header>
+  <!-- Main Content -->
+  <main id="main-content">
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="video-background">
+      <video autoplay muted loop playsinline>
+        <source src="./assets/cooking_video.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <h1>Makromat</h1>
+      <p>Räkna makron, upptäck recept och dela dina favoriter med en community som brinner för träning och hälsa</p>
+      <a href="https://apps.apple.com/app/gains-makromat/id6737398853" class="hero-cta">Kom igång</a>
+    </div>
+  </section>
 
-		<!-- One -->
-			<!-- <section id="one" class="wrapper style2 special">
-				<header class="major">
-					<h2>Sed ipsum magna lorem tempus amet<br />
-					vehicula et gravida elementum</h2>
-				</header>
-				<ul class="icons major">
-					<li><span class="icon solid fa-camera-retro"><span class="label">Shoot</span></span></li>
-					<li><span class="icon solid fa-sync"><span class="label">Process</span></span></li>
-					<li><span class="icon solid fa-cloud"><span class="label">Upload</span></span></li>
-				</ul>
-			</section> -->
+  <!-- App Showcase -->
+  <section class="app-showcase">
+    <div class="showcase-container">
+       <div class="phones-grid">
+       
+         
+         <article class="phone-item">
+           <div class="phone-mockup parallax" data-speed="0.02">
+             <div class="phone-notch"></div>
+             <div class="phone-screen">
+               <img src="images/appmockups/1.PNG" alt="Makroräknare och kaloriräknare i Makromat app" loading="lazy">
+             </div>
+           </div>
+           <h2>Spåra makron</h2>
+           <p>Håll koll på protein, kolhydrater och fett för att nå dina mål</p>
+         </article>
+        
+         <article class="phone-item">
+          <div class="phone-mockup parallax" data-speed="0.02">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="images/appmockups/2.PNG" alt="Makromat app skärm som visar receptskapande med automatisk näringsberäkning" loading="lazy">
+            </div>
+          </div>
+          <h2>Skapa recept</h2>
+          <p>Använd vår databas för att skapa egna recept med automatisk näringsberäkning.</p>
+        </article>
+         
+         <article class="phone-item">
+           <div class="phone-mockup parallax" data-speed="0.02">
+             <div class="phone-notch"></div>
+             <div class="phone-screen">
+               <img src="images/appmockups/4.PNG" alt="Ingrediensdatabas i Makromat med tusentals livsmedel" loading="lazy">
+             </div>
+           </div>
+           <h2>Ingrediensdatabas</h2>
+           <p>Stor svensk databas med tusentals livsmedel och dess näringsvärden.</p>
+         </article>
+         
+         <article class="phone-item">
+           <div class="phone-mockup parallax" data-speed="0.02">
+             <div class="phone-notch"></div>
+             <div class="phone-screen">
+               <img src="images/appmockups/3.PNG" alt="Makromat app statistik och uppföljning" loading="lazy">
+             </div>
+           </div>
+           <h2>Community</h2>
+           <p>Följ andra användare, dela dina recept och bli inspirerad av andras träningsresor.</p>
+         </article>
+       </div>
+      
+      <div class="features-list">
+        <h3>Funktioner</h3>
+        <div class="features-box">
+          <ul class="features-columns">
+            <li class="feature-item">Automatisk näringsberäkning</li>
+            <li class="feature-item">Dela recept med community</li>
+            <li class="feature-item">Synkronisering mellan enheter</li>
+            <li class="feature-item">Detaljerad statistik och grafer</li>
+            <li class="feature-item">Målinställningar och uppföljning</li>
+            <li class="feature-item">Anpassningsbara portionsstorlekar</li>
+            <li class="feature-item">Favoritrecept och samlingar</li>
+            <li class="feature-item">Stöd för olika måttenheter</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<!-- Two -->
-			<section id="two" class="wrapper">
-				<div class="inner alt">
-					<section class="spotlight">
-						<div class="image"><img src="images/img1.png" alt="" /></div>
-						<div class="content">
-							<h3>Skapa recept</h3>
-							<p>Skapa egna recept med ingredienser från våran databas som automatiskt räknar ut innehållet.</p>
-						</div>
-					</section>
-					<section class="spotlight">
-						<div class="image"><img src="images/img2.png" alt="" /></div>
-						<div class="content">
-							<h3>Kaloriräknare</h3>
-							<p>Håll koll på ditt dagliga intag av kalorier, fett, protein och kolhydrater för att maximera dina träningsresultat.</p>
-						</div>
-					</section>
-					<section class="spotlight">
-						<div class="image" ><img src="images/img3.png" alt="" /></div>
-						<div class="content">
-							<h3>Databas för ingredienser</h3>
-							<p>Ta del av vår stora communitydrivna databas för ingredienser. Lägg till eller modifiera ingredienser enkelt i olika sorters mått.</p>
-						</div>
-					</section>
-					<!-- <section class="special">
-						<ul class="icons labeled">
-							<li><span class="icon solid fa-camera-retro"><span class="label">Ipsum lorem accumsan</span></span></li>
-							<li><span class="icon solid fa-sync"><span class="label">Sed vehicula elementum</span></span></li>
-							<li><span class="icon solid fa-cloud"><span class="label">Elit fusce consequat</span></span></li>
-							<li><span class="icon solid fa-code"><span class="label">Lorem nullam tempus</span></span></li>
-							<li><span class="icon solid fa-desktop"><span class="label">Adipiscing amet sapien</span></span></li>
-						</ul>
-					</section> -->
-				</div>
-			</section>
+  <!-- Blog Section -->
+  <section id="blog" class="blog">
+    <div class="blog-container">
+      <div class="section-header">
+        <h2>Blogg</h2>
+      </div>
+      <div class="blog-grid">
+        <article>
+          <a href="blog/kom-igang-med-makrorakning.html" class="blog-card">
+            <div class="blog-image">📝</div>
+            <div class="blog-content">
+              <time class="blog-date" datetime="2025-11-10">10 november 2025</time>
+              <h3>Kom igång med makroräkning</h3>
+              <p>Grunderna i makroräkning och hur du enkelt kan komma igång</p>
+            </div>
+          </a>
+        </article>
+        
+        <article>
+          <a href="blog/proteinrika-recept.html" class="blog-card">
+            <div class="blog-image">🥗</div>
+            <div class="blog-content">
+              <time class="blog-date" datetime="2025-11-08">8 november 2025</time>
+              <h3>5 proteinrika recept</h3>
+              <p>Favorit proteinrika recept som är både goda och enkla</p>
+            </div>
+          </a>
+        </article>
+        
+        <article>
+          <a href="blog/tips-battre-resultat.html" class="blog-card">
+            <div class="blog-image">💡</div>
+            <div class="blog-content">
+              <time class="blog-date" datetime="2025-11-05">5 november 2025</time>
+              <h3>Tips för bättre resultat</h3>
+              <p>Maximera dina resultat med beprövade strategier</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  </main>
+  <!-- End Main Content -->
 
-		<!-- Three -->
-			<!-- <section id="three" class="wrapper style2 special">
-				<header class="major">
-					<h2>Magna leo sapien gravida</h2>
-					<p>Gravida at leo elementum elit fusce accumsan dui libero, quis vehicula<br />
-					lectus ultricies eu. In convallis amet leo sapien iaculis efficitur.</p>
-				</header>
-				<ul class="actions special">
-					<li><a href="#" class="button primary icon solid fa-download">Download</a></li>
-					<li><a href="#" class="button">Learn More</a></li>
-				</ul>
-			</section> -->
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-email">
+        Feedback? <a href="mailto:michael@makromat.app">michael@makromat.app</a>
+      </div>
+      <div class="footer-links">
+        <a href="https://apps.apple.com/app/gains-makromat/id6737398853">Ladda ner</a>
+        <a href="terms.html">Användarvillkor</a>
+        <a href="privacy.html">Integritetspolicy</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2025 Novamitech AB
+      </div>
+      <div class="footer-seo">
+        Makromat - Sveriges bästa makroräknare och kaloriräknare för träning, viktminskning och muskeluppbyggnad. Räkna makron, spåra protein, kolhydrater och fett, upptäck hälsosamma recept och dela med community.
+      </div>
+    </div>
+  </footer>
 
-		<!-- Four -->
-		<!--
-			<section id="four" class="wrapper">
-				<div class="inner">
+  <script>
+    // Navigation scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
 
-					<header class="major">
-						<h2>Elements</h2>
-					</header>
+    // Subtle parallax effect on phone showcase only
+    window.addEventListener('scroll', () => {
+      const parallaxElements = document.querySelectorAll('.parallax');
+      parallaxElements.forEach(el => {
+        const speed = el.dataset.speed || 0.02;
+        const rect = el.getBoundingClientRect();
+        const scrollPos = window.scrollY;
+        const offset = scrollPos * speed;
+        el.style.transform = `translateY(-${offset}px)`;
+      });
+    });
 
-					<section>
-						<h4>Text</h4>
-						<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-						This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-						This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-						<hr />
-						<header>
-							<h4>Heading with a Subtitle</h4>
-							<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-						</header>
-						<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-						<header>
-							<h5>Heading with a Subtitle</h5>
-							<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-						</header>
-						<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-						<hr />
-						<h2>Heading Level 2</h2>
-						<h3>Heading Level 3</h3>
-						<h4>Heading Level 4</h4>
-						<h5>Heading Level 5</h5>
-						<h6>Heading Level 6</h6>
-						<hr />
-						<h5>Blockquote</h5>
-						<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-						<h5>Preformatted</h5>
-						<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-  print 'Iteration ' + i;
-  deck.shuffle();
-  i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-					</section>
-
-					<section>
-						<h4>Lists</h4>
-						<div class="row">
-							<div class="col-6 col-12-medium">
-								<h5>Unordered</h5>
-								<ul>
-									<li>Dolor pulvinar etiam.</li>
-									<li>Sagittis adipiscing.</li>
-									<li>Felis enim feugiat.</li>
-								</ul>
-								<h5>Alternate</h5>
-								<ul class="alt">
-									<li>Dolor pulvinar etiam.</li>
-									<li>Sagittis adipiscing.</li>
-									<li>Felis enim feugiat.</li>
-								</ul>
-							</div>
-							<div class="col-6 col-12-medium">
-								<h5>Ordered</h5>
-								<ol>
-									<li>Dolor pulvinar etiam.</li>
-									<li>Etiam vel felis viverra.</li>
-									<li>Felis enim feugiat.</li>
-									<li>Dolor pulvinar etiam.</li>
-									<li>Etiam vel felis lorem.</li>
-									<li>Felis enim et feugiat.</li>
-								</ol>
-								<h5>Icons</h5>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								</ul>
-							</div>
-						</div>
-						<h5>Actions</h5>
-						<div class="row">
-							<div class="col-6 col-12-medium">
-								<ul class="actions">
-									<li><a href="#" class="button primary">Default</a></li>
-									<li><a href="#" class="button">Default</a></li>
-								</ul>
-								<ul class="actions small">
-									<li><a href="#" class="button primary small">Small</a></li>
-									<li><a href="#" class="button small">Small</a></li>
-								</ul>
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary">Default</a></li>
-									<li><a href="#" class="button">Default</a></li>
-								</ul>
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary small">Small</a></li>
-									<li><a href="#" class="button small">Small</a></li>
-								</ul>
-							</div>
-							<div class="col-6 col-12-medium">
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary fit">Default</a></li>
-									<li><a href="#" class="button fit">Default</a></li>
-								</ul>
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary small fit">Small</a></li>
-									<li><a href="#" class="button small fit">Small</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
-
-					<section>
-						<h4>Table</h4>
-						<h5>Default</h5>
-						<div class="table-wrapper">
-							<table>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Item One</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Two</td>
-										<td>Vis ac commodo adipiscing arcu aliquet.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Three</td>
-										<td> Morbi faucibus arcu accumsan lorem.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Four</td>
-										<td>Vitae integer tempus condimentum.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Five</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="2"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
-
-						<h5>Alternate</h5>
-						<div class="table-wrapper">
-							<table class="alt">
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Item One</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Two</td>
-										<td>Vis ac commodo adipiscing arcu aliquet.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Three</td>
-										<td> Morbi faucibus arcu accumsan lorem.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Four</td>
-										<td>Vitae integer tempus condimentum.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Five</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="2"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
-					</section>
-
-					<section>
-						<h4>Buttons</h4>
-						<ul class="actions">
-							<li><a href="#" class="button primary">Primary</a></li>
-							<li><a href="#" class="button">Default</a></li>
-						</ul>
-						<ul class="actions">
-							<li><a href="#" class="button large">Large</a></li>
-							<li><a href="#" class="button">Default</a></li>
-							<li><a href="#" class="button small">Small</a></li>
-						</ul>
-						<ul class="actions fit">
-							<li><a href="#" class="button fit">Fit</a></li>
-							<li><a href="#" class="button primary fit">Fit</a></li>
-							<li><a href="#" class="button fit">Fit</a></li>
-						</ul>
-						<ul class="actions fit small">
-							<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-							<li><a href="#" class="button fit small">Fit + Small</a></li>
-							<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-						</ul>
-						<ul class="actions">
-							<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-							<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-						</ul>
-						<ul class="actions">
-							<li><span class="button primary disabled">Disabled</span></li>
-							<li><span class="button disabled">Disabled</span></li>
-						</ul>
-					</section>
-
-					<section>
-						<h4>Form</h4>
-						<form method="post" action="#">
-							<div class="row gtr-uniform">
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-								</div>
-								<div class="col-12">
-									<select name="demo-category" id="demo-category">
-										<option value="">- Category -</option>
-										<option value="1">Manufacturing</option>
-										<option value="1">Shipping</option>
-										<option value="1">Administration</option>
-										<option value="1">Human Resources</option>
-									</select>
-								</div>
-								<div class="col-4 col-12-small">
-									<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-									<label for="demo-priority-low">Low</label>
-								</div>
-								<div class="col-4 col-12-small">
-									<input type="radio" id="demo-priority-normal" name="demo-priority">
-									<label for="demo-priority-normal">Normal</label>
-								</div>
-								<div class="col-4 col-12-small">
-									<input type="radio" id="demo-priority-high" name="demo-priority">
-									<label for="demo-priority-high">High</label>
-								</div>
-								<div class="col-6 col-12-small">
-									<input type="checkbox" id="demo-copy" name="demo-copy">
-									<label for="demo-copy">Email me a copy</label>
-								</div>
-								<div class="col-6 col-12-small">
-									<input type="checkbox" id="demo-human" name="demo-human" checked>
-									<label for="demo-human">Not a robot</label>
-								</div>
-								<div class="col-12">
-									<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-								</div>
-								<div class="col-12">
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</div>
-							</div>
-						</form>
-					</section>
-
-					<section>
-						<h4>Image</h4>
-						<h5>Fit</h5>
-						<div class="box alt">
-							<div class="row gtr-uniform">
-								<div class="col-12"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-							</div>
-						</div>
-						<h5>Left &amp; Right</h5>
-						<p><span class="image left"><img src="images/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-						<p><span class="image right"><img src="images/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-					</section>
-
-				</div>
-			</section>
-		-->
-
-		<!-- Footer -->
-			<footer id="footer">
-				Feedback? Skicka gärna till <br/> 
-				<a href="mailto:your-email@example.com">michael@makromat.app</a></p>
-				<a href="terms.html">Användarvillkor</a><br>
-				<a href="privacy.html">Integritetspolicy</a>
-				<p class="copyright">&copy; Novamitech AB</p>
-				
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-
-		
-			<script>
-
-		function handleDeepLink() {
-			const path = window.location.pathname;
-			const search = window.location.search;
-
-			const params = getQueryParams();
-
-			console.log("queryParams: " + queryParams);
-
-			if (queryParams.name) {
-				console.log("name: " + queryParams.name);
-				document.querySelector('meta[property="og:title"]')?.setAttribute('content', `Recept: ${params.name}`);
-			}
-
-			console.log("path: " + path);
-			console.log("search: " + search);
-			
-			// If this is a recipe share link, try to open the app
-			if (path.startsWith('/recipe/')) {
-				// Try to open the app with custom scheme
-				const appUrl = `makromat://${path}${search}`;
-				window.location.href = appUrl;
-				// Fallback to app store after a delay
-				setTimeout(() => {
-				window.location.href = 'https://apps.apple.com/app/gains-makromat/id6737398853';
-				}, 2000);
-				return;
-			}
-	}
-
-	function getQueryParams() {
-			const params = {};
-			const queryString = window.location.search.substring(1); // remove '?'
-			const pairs = queryString.split("&");
-
-			for (const pair of pairs) {
-				const [key, value] = pair.split("=");
-				if (key) params[key] = decodeURIComponent(value || '');
-			}
-
-			return params;
-	}
-						
-					
-		window.addEventListener('load', function(ev) {
-					console.log("load");
-					handleDeepLink();
-		});
-			</script>
-	</body>
+    // Deep link handling
+    function handleDeepLink() {
+      const path = window.location.pathname;
+      const search = window.location.search;
+      
+      const params = getQueryParams();
+      
+      if (params.name) {
+        document.querySelector('meta[property="og:title"]')?.setAttribute('content', `Recept: ${params.name}`);
+      }
+      
+      if (path.startsWith('/recipe/')) {
+        const appUrl = `makromat://${path}${search}`;
+        window.location.href = appUrl;
+        setTimeout(() => {
+          window.location.href = 'https://apps.apple.com/app/gains-makromat/id6737398853';
+        }, 2000);
+        return;
+      }
+    }
+    
+    function getQueryParams() {
+      const params = {};
+      const queryString = window.location.search.substring(1);
+      const pairs = queryString.split("&");
+      
+      for (const pair of pairs) {
+        const [key, value] = pair.split("=");
+        if (key) params[key] = decodeURIComponent(value || '');
+      }
+      
+      return params;
+    }
+    
+    window.addEventListener('load', handleDeepLink);
+  </script>
+</body>
 </html>
