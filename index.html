@@ -101,10 +101,11 @@
       justify-content: space-between;
       align-items: center;
       transition: all 0.3s ease;
+      background: #fff;
     }
     
     nav.scrolled {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       box-shadow: 0 1px 0 rgba(0,0,0,0.05);
     }
@@ -112,6 +113,9 @@
     .logo {
       display: flex;
       align-items: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #000;
     }
     
     .logo img {
@@ -139,12 +143,11 @@
       text-decoration: none;
       font-weight: 500;
       font-size: 0.95rem;
-      opacity: 0.8;
       transition: opacity 0.3s ease;
     }
     
     .nav-links a:hover {
-      opacity: 1;
+      opacity: 0.7;
     }
     
     nav a.download-btn {
@@ -159,124 +162,138 @@
     }
     
     nav a.download-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      opacity: 0.9;
     }
     
     /* Hero Section */
     .hero {
       position: relative;
-      height: 100vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      padding: 8rem 5% 4rem;
+      background: #fff;
     }
     
-    .video-background {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .hero-container {
+      max-width: 1400px;
       width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-    
-    .video-background video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-    }
-    
-    .video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
     }
     
     .hero-content {
       position: relative;
       z-index: 10;
-      text-align: center;
-      color: #fff;
-      max-width: 700px;
-      padding: 2rem;
-      animation: fadeInUp 1s ease;
-    }
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      color: #111;
     }
     
     .hero h1 {
-      font-size: 4rem;
+      font-size: 3.5rem;
       font-weight: 700;
       letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
       line-height: 1.1;
+      color: #000;
     }
     
     .hero p {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       font-weight: 400;
-      opacity: 0.95;
+      color: #333;
       margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      line-height: 1.6;
     }
     
     .hero-cta {
       display: inline-block;
-      background: #fff;
-      color: #000;
+      background: #000;
+      color: #fff;
       padding: 1rem 2.5rem;
       border-radius: 100px;
       text-decoration: none;
       font-weight: 600;
       font-size: 1.1rem;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 40px rgba(255,255,255,0.2);
     }
     
     .hero-cta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 50px rgba(255,255,255,0.3);
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    
+    .hero-phone {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .hero-phone-mockup {
+      width: 100%;
+      max-width: 320px;
+      height: 640px;
+      background: #1a1a1a;
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+      position: relative;
+    }
+    
+    .hero-phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border-radius: 32px;
+      overflow: hidden;
+    }
+    
+    .hero-phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .hero-phone-notch {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 28px;
+      background: #1a1a1a;
+      border-radius: 0 0 18px 18px;
+      z-index: 10;
     }
     
     /* App Showcase */
     .app-showcase {
-      padding: 10rem 5% 8rem;
+      padding: 6rem 5%;
       background: #fff;
     }
     
     .showcase-container {
-      max-width: 1600px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     
-     .phones-grid {
-       display: grid;
-       grid-template-columns: repeat(4, 1fr);
-       gap: 3rem;
-       margin-bottom: 8rem;
-     }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 4rem;
+      letter-spacing: -0.02em;
+      color: #000;
+    }
+    
+    .phones-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      margin-bottom: 6rem;
+    }
     
     .phone-item {
       text-align: center;
@@ -284,26 +301,26 @@
     
     .phone-mockup {
       width: 100%;
-      max-width: 260px;
-      height: 520px;
-      margin: 0 auto 2.5rem;
+      max-width: 240px;
+      height: 480px;
+      margin: 0 auto 2rem;
       background: #1a1a1a;
-      border-radius: 35px;
-      padding: 10px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+      border-radius: 30px;
+      padding: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
       position: relative;
     }
     
     .phone-mockup:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
     }
     
     .phone-screen {
       width: 100%;
       height: 100%;
       background: #fff;
-      border-radius: 28px;
+      border-radius: 24px;
       overflow: hidden;
     }
     
@@ -315,163 +332,133 @@
     
     .phone-notch {
       position: absolute;
-      top: 10px;
+      top: 8px;
       left: 50%;
       transform: translateX(-50%);
-      width: 100px;
-      height: 25px;
+      width: 90px;
+      height: 22px;
       background: #1a1a1a;
-      border-radius: 0 0 15px 15px;
+      border-radius: 0 0 12px 12px;
       z-index: 10;
     }
     
     .phone-item h2 {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       letter-spacing: -0.01em;
+      color: #000;
     }
     
     .phone-item p {
       color: #666;
-      line-height: 1.7;
+      line-height: 1.6;
       padding: 0 1rem;
+      font-size: 0.95rem;
     }
     
     /* Features List */
     .features-list {
-      max-width: 900px;
-      margin: 0 auto;
+      max-width: 600px;
+      margin: 2rem auto 0;
       padding: 0 2rem;
     }
     
-    .features-list h3 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 2.5rem;
-      letter-spacing: -0.02em;
+    .features-title {
       text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
     }
     
     .features-box {
       background: #f9f9f9;
-      border: 1px solid #e5e5e5;
-      border-radius: 16px;
-      padding: 3rem 3.5rem;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid #eee;
     }
     
     .features-columns {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.8rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
       list-style: none;
       margin: 0;
       padding: 0;
     }
     
     .feature-item {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #333;
-      line-height: 1.7;
+      line-height: 1.3;
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
+      align-items: center;
+      gap: 0.5rem;
     }
     
     .feature-item::before {
       content: '✓';
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #000;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #888;
       flex-shrink: 0;
-      margin-top: 0.15rem;
     }
     
-    /* Blog Section */
-    .blog {
-      padding: 10rem 5% 8rem;
-      background: #f9f9f9;
+    /* About Section */
+    .about {
+      padding: 6rem 5%;
+      background: #fff;
     }
     
-    .blog-container {
+    .about-container {
       max-width: 1200px;
       margin: 0 auto;
     }
     
-    .section-header {
-      text-align: center;
-      margin-bottom: 5rem;
+    .about-section {
+      margin-bottom: 6rem;
     }
     
-    .section-header h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+    .about-section:last-child {
       margin-bottom: 0;
     }
     
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
+    .about-header {
+      text-align: center;
+      margin-bottom: 3rem;
     }
     
-    .blog-card {
-      background: #fff;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      border: 1px solid #eee;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      cursor: pointer;
-    }
-    
-    .blog-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
-    
-    .blog-image {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 3rem;
-    }
-    
-    .blog-content {
-      padding: 2rem;
-    }
-    
-    .blog-date {
-      color: #999;
-      font-size: 0.85rem;
-      margin-bottom: 0.8rem;
-    }
-    
-    .blog-card h3 {
-      font-size: 1.3rem;
-      font-weight: 600;
+    .about-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 1rem;
-      letter-spacing: -0.01em;
+      color: #000;
     }
     
-    .blog-card p {
-      color: #666;
-      line-height: 1.7;
-      margin: 0;
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .about-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+    
+    .about-content p:last-child {
+      margin-bottom: 0;
     }
     
     /* Footer */
     footer {
       background: #000;
       color: #fff;
-      padding: 5rem 5% 3rem;
+      padding: 4rem 5% 2rem;
     }
     
     .footer-content {
@@ -484,7 +471,7 @@
       display: flex;
       gap: 2rem;
       justify-content: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       flex-wrap: wrap;
     }
     
@@ -493,6 +480,7 @@
       text-decoration: none;
       opacity: 0.7;
       transition: opacity 0.3s;
+      font-size: 0.95rem;
     }
     
     .footer-links a:hover {
@@ -500,7 +488,7 @@
     }
     
     .footer-email {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       opacity: 0.7;
       font-size: 0.95rem;
     }
@@ -526,29 +514,61 @@
       margin-right: auto;
     }
     
-     /* Responsive */
-     @media (max-width: 1200px) {
-       .phones-grid {
-         grid-template-columns: repeat(2, 1fr);
-         gap: 3rem;
-       }
-     }
-     
-     @media (max-width: 1024px) {
-       .hero h1 {
-         font-size: 3rem;
-       }
-       
-       .blog-grid {
-         grid-template-columns: repeat(2, 1fr);
-       }
-       
-       .features-columns {
-         grid-template-columns: 1fr;
-       }
-     }
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .phones-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 1024px) {
+      .hero-container {
+        gap: 3rem;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .hero p {
+        font-size: 1.15rem;
+      }
+      
+      .hero-phone-mockup {
+        max-width: 280px;
+        height: 560px;
+      }
+      
+      .features-box {
+        padding: 1rem 1.25rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .about-header h2 {
+        font-size: 2rem;
+      }
+    }
     
     @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding: 6rem 1.5rem 3rem;
+      }
+      
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+      
+      .hero-content {
+        text-align: center;
+      }
+      
       .hero h1 {
         font-size: 2.5rem;
       }
@@ -557,22 +577,27 @@
         font-size: 1.1rem;
       }
       
-      .section-header h2 {
-        font-size: 2rem;
+      .hero-phone-mockup {
+        max-width: 280px;
+        height: 560px;
       }
       
-      .blog-grid {
-        grid-template-columns: 1fr;
+      .section-title {
+        font-size: 2rem;
       }
       
       .phones-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2.5rem;
         margin-bottom: 4rem;
       }
       
       nav {
         padding: 1rem 1.5rem;
+      }
+      
+      .logo {
+        font-size: 1.25rem;
       }
       
       .logo img {
@@ -588,34 +613,54 @@
       }
       
       .app-showcase {
-        padding: 6rem 1.5rem 4rem;
+        padding: 4rem 1.5rem;
       }
       
-      .blog {
-        padding: 6rem 1.5rem 4rem;
+      .about {
+        padding: 4rem 1.5rem;
       }
       
-      .section-header {
-        margin-bottom: 3rem;
+      .about-section {
+        margin-bottom: 4rem;
+      }
+      
+      .about-header {
+        margin-bottom: 2rem;
+      }
+      
+      .about-header h2 {
+        font-size: 2rem;
+      }
+      
+      .about-content {
+        text-align: center;
+      }
+      
+      .about-content p {
+        font-size: 1rem;
+      }
+      
+      .features-list {
+        margin-top: 2rem;
+        padding: 0 1rem;
       }
       
       .features-box {
-        padding: 2rem 1.5rem;
+        padding: 1rem 1.25rem;
       }
       
       .features-columns {
-        gap: 1.5rem 2rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.3rem 0.75rem;
+      }
+      
+      .feature-item {
+        font-size: 0.85rem;
       }
       
       footer {
         padding: 3rem 1.5rem 2rem;
       }
-    }
-    
-    /* Parallax Effect */
-    .parallax {
-      will-change: transform;
-      transition: transform 0.1s ease-out;
     }
   </style>
 </head>
@@ -625,7 +670,7 @@
     <div class="logo">Makromat</div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#blog">Blogg</a></li>
+        <li><a href="#about">Om appen</a></li>
       </ul>
       <a href="https://apps.apple.com/se/app/makromat-proteinr%C3%A4knare/id6447565445" class="download-btn" target="_blank" rel="noopener">Ladda ner</a>
     </div>
@@ -636,49 +681,54 @@
   
   <!-- Hero Section -->
   <section class="hero">
-    <div class="video-background">
-      <video autoplay muted loop playsinline>
-        <source src="./assets/cooking_video.mp4" type="video/mp4">
-      </video>
-      <div class="video-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <h1>Makromat</h1>
-      <p>Räkna makron, upptäck recept och dela dina favoriter med en community som brinner för träning och hälsa</p>
-      <a href="https://apps.apple.com/se/app/makromat-proteinr%C3%A4knare/id6447565445" class="hero-cta" target="_blank" rel="noopener">Kom igång</a>
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>Makromat</h1>
+        <p>Räkna makron, upptäck recept och dela dina favoriter med en community som brinner för träning och hälsa</p>
+        <a href="https://apps.apple.com/se/app/makromat-proteinr%C3%A4knare/id6447565445" class="hero-cta" target="_blank" rel="noopener">Ladda ner</a>
+      </div>
+      <div class="hero-phone">
+        <div class="hero-phone-mockup">
+          <div class="hero-phone-notch"></div>
+          <div class="hero-phone-screen">
+            <img src="images/appmockups/1.PNG" alt="Makromat app" loading="lazy">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- App Showcase -->
   <section class="app-showcase">
     <div class="showcase-container">
-       <div class="phones-grid">
+      <h2 class="section-title">Funktioner</h2>
+      <div class="phones-grid">
        
          
          <article class="phone-item">
-           <div class="phone-mockup parallax" data-speed="0.02">
+           <div class="phone-mockup">
              <div class="phone-notch"></div>
              <div class="phone-screen">
                <img src="images/appmockups/1.PNG" alt="Makroräknare och kaloriräknare i Makromat app" loading="lazy">
              </div>
            </div>
-           <h2>Spåra makron</h2>
-           <p>Håll koll på protein, kolhydrater och fett för att nå dina mål</p>
+           <h2>Enkel makroräkning</h2>
+           <p>Tracka med bild, text, databas, streckkod eller manuellt</p>
          </article>
         
          <article class="phone-item">
-          <div class="phone-mockup parallax" data-speed="0.02">
+          <div class="phone-mockup">
             <div class="phone-notch"></div>
             <div class="phone-screen">
               <img src="images/appmockups/2.PNG" alt="Makromat app skärm som visar receptskapande med automatisk näringsberäkning" loading="lazy">
             </div>
           </div>
           <h2>Skapa recept</h2>
-          <p>Använd vår databas för att skapa egna recept med automatisk näringsberäkning.</p>
+          <p>Använd vår databas & AI-verktyg för att snabbt skapa egna recept med automatisk näringsberäkning. </p>
         </article>
          
          <article class="phone-item">
-           <div class="phone-mockup parallax" data-speed="0.02">
+           <div class="phone-mockup">
              <div class="phone-notch"></div>
              <div class="phone-screen">
                <img src="images/appmockups/4.PNG" alt="Ingrediensdatabas i Makromat med tusentals livsmedel" loading="lazy">
@@ -689,7 +739,7 @@
          </article>
          
          <article class="phone-item">
-           <div class="phone-mockup parallax" data-speed="0.02">
+           <div class="phone-mockup">
              <div class="phone-notch"></div>
              <div class="phone-screen">
                <img src="images/appmockups/3.PNG" alt="Makromat app statistik och uppföljning" loading="lazy">
@@ -701,62 +751,47 @@
        </div>
       
       <div class="features-list">
-        <h3>Funktioner</h3>
+        <p class="features-title">Plus mycket mer</p>
         <div class="features-box">
           <ul class="features-columns">
-            <li class="feature-item">Automatisk näringsberäkning</li>
-            <li class="feature-item">Dela recept med community</li>
-            <li class="feature-item">Synkronisering mellan enheter</li>
+            <li class="feature-item">Följ & skapa egna kostscheman</li>
+            <li class="feature-item">Dagbok med historik</li>
+            <li class="feature-item">Spara återkommande registreringar och matvaror</li>
+            <li class="feature-item">Skapa recept från text, skärmdump eller länk</li>
+            <li class="feature-item">Veckovis AI-sammanfattning</li>
+            
+            <li class="feature-item">Tracka din viktutveckling över tid</li>
+            <li class="feature-item">Synkronisering med Apple Health</li>
             <li class="feature-item">Detaljerad statistik och grafer</li>
-            <li class="feature-item">Målinställningar och uppföljning</li>
-            <li class="feature-item">Anpassningsbara portionsstorlekar</li>
-            <li class="feature-item">Favoritrecept och samlingar</li>
-            <li class="feature-item">Stöd för olika måttenheter</li>
+            <li class="feature-item">Modifiera alla recept hur du vill</li>
+            <li class="feature-item">... och mycket mer!</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Blog Section -->
-  <section id="blog" class="blog">
-    <div class="blog-container">
-      <div class="section-header">
-        <h2>Blogg</h2>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="about-container">
+      <div class="about-section">
+        <div class="about-header">
+          <h2>Om Makromat</h2>
+        </div>
+        <div class="about-content">
+          <p>Makromat skapades för att göra makroräkning enkelt och tillgängligt för alla. Vi tror på att hålla det enkelt - du ska kunna äta vanlig mat oavsett om du vill gå upp, ner eller hålla vikten.</p>
+          <p>Appen ger dig alla verktyg du behöver för att spåra dina makron, skapa recept och dela med community. Allt på ett ställe, enkelt och intuitivt.</p>
+        </div>
       </div>
-      <div class="blog-grid">
-        <article>
-          <a href="blog/kom-igang-med-makrorakning.html" class="blog-card">
-            <div class="blog-image">📝</div>
-            <div class="blog-content">
-              <time class="blog-date" datetime="2025-11-10">10 november 2025</time>
-              <h3>Kom igång med makroräkning</h3>
-              <p>Grunderna i makroräkning och hur du enkelt kan komma igång</p>
-            </div>
-          </a>
-        </article>
-        
-        <article>
-          <a href="blog/proteinrika-recept.html" class="blog-card">
-            <div class="blog-image">🥗</div>
-            <div class="blog-content">
-              <time class="blog-date" datetime="2025-11-08">8 november 2025</time>
-              <h3>5 proteinrika recept</h3>
-              <p>Favorit proteinrika recept som är både goda och enkla</p>
-            </div>
-          </a>
-        </article>
-        
-        <article>
-          <a href="blog/tips-battre-resultat.html" class="blog-card">
-            <div class="blog-image">💡</div>
-            <div class="blog-content">
-              <time class="blog-date" datetime="2025-11-05">5 november 2025</time>
-              <h3>Tips för bättre resultat</h3>
-              <p>Maximera dina resultat med beprövade strategier</p>
-            </div>
-          </a>
-        </article>
+      
+      <div class="about-section">
+        <div class="about-header">
+          <h2>Vad vi vill uppnå</h2>
+        </div>
+        <div class="about-content">
+          <p>Vi vill skapa en plattform där alla kan nå sina tränings- och hälsomål utan komplicerade system eller dyra prenumerationer.</p>
+          <p>Målet är att ge mervärde i allt, där du som användare alltid får ut mer än du betalar för. Genom en stor databas, smarta verktyg och en engagerad community hjälper vi dig att nå dina mål.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -793,18 +828,6 @@
       } else {
         nav.classList.remove('scrolled');
       }
-    });
-
-    // Subtle parallax effect on phone showcase only
-    window.addEventListener('scroll', () => {
-      const parallaxElements = document.querySelectorAll('.parallax');
-      parallaxElements.forEach(el => {
-        const speed = el.dataset.speed || 0.02;
-        const rect = el.getBoundingClientRect();
-        const scrollPos = window.scrollY;
-        const offset = scrollPos * speed;
-        el.style.transform = `translateY(-${offset}px)`;
-      });
     });
 
     // Deep link handling
