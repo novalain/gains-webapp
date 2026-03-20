@@ -164,6 +164,24 @@
     nav a.download-btn:hover {
       opacity: 0.9;
     }
+
+    #lang-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0.35rem 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #333;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    #lang-select:hover {
+      border-color: #999;
+    }
     
     /* Hero Section */
     .hero {
@@ -670,9 +688,14 @@
     <div class="logo">Makromat</div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#about">Om appen</a></li>
+        <li><a href="#about" data-i18n="navAbout">Om appen</a></li>
       </ul>
-      <a href="https://apps.apple.com/se/app/makromat-proteinr%C3%A4knare/id6447565445" class="download-btn" target="_blank" rel="noopener">Ladda ner</a>
+      <select id="lang-select" aria-label="Language">
+        <option value="sv">SV</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+      <a href="https://apps.apple.com/se/app/makromat-proteinr%C3%A4knare/id6447565445" class="download-btn" target="_blank" rel="noopener" data-i18n="download">Ladda ner</a>
     </div>
   </nav>
 
@@ -684,8 +707,8 @@
     <div class="hero-container">
       <div class="hero-content">
         <h1>Makromat</h1>
-        <p>Räkna makron, upptäck recept och dela dina favoriter med en community som brinner för träning och hälsa</p>
-        <a href="https://apps.apple.com/se/app/makromat-proteinr%C3%A4knare/id6447565445" class="hero-cta" target="_blank" rel="noopener">Ladda ner</a>
+        <p data-i18n="heroSubtitle">Räkna makron, upptäck recept och dela dina favoriter med en community som brinner för träning och hälsa</p>
+        <a href="https://apps.apple.com/se/app/makromat-proteinr%C3%A4knare/id6447565445" class="hero-cta" target="_blank" rel="noopener" data-i18n="download">Ladda ner</a>
       </div>
       <div class="hero-phone">
         <div class="hero-phone-mockup">
@@ -701,70 +724,68 @@
   <!-- App Showcase -->
   <section class="app-showcase">
     <div class="showcase-container">
-      <h2 class="section-title">Funktioner</h2>
+      <h2 class="section-title" data-i18n="featuresTitle">Funktioner</h2>
       <div class="phones-grid">
        
-         
          <article class="phone-item">
            <div class="phone-mockup">
              <div class="phone-notch"></div>
              <div class="phone-screen">
-               <img src="images/appmockups/1.PNG" alt="Makroräknare och kaloriräknare i Makromat app" loading="lazy">
+               <img src="images/appmockups/1.PNG" alt="Makromat app macro tracking" loading="lazy">
              </div>
            </div>
-           <h2>Enkel makroräkning</h2>
-           <p>Tracka med bild, text, databas, streckkod eller manuellt</p>
+           <h2 data-i18n="feature1Title">Enkel makroräkning</h2>
+           <p data-i18n="feature1Desc">Tracka med bild, text, databas, streckkod eller manuellt</p>
          </article>
         
          <article class="phone-item">
           <div class="phone-mockup">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <img src="images/appmockups/2.PNG" alt="Makromat app skärm som visar receptskapande med automatisk näringsberäkning" loading="lazy">
+              <img src="images/appmockups/2.PNG" alt="Makromat app recipe creation" loading="lazy">
             </div>
           </div>
-          <h2>Skapa recept</h2>
-          <p>Använd vår databas & AI-verktyg för att snabbt skapa egna recept med automatisk näringsberäkning. </p>
+          <h2 data-i18n="feature2Title">Skapa recept</h2>
+          <p data-i18n="feature2Desc">Använd vår databas & AI-verktyg för att snabbt skapa egna recept med automatisk näringsberäkning.</p>
         </article>
          
          <article class="phone-item">
            <div class="phone-mockup">
              <div class="phone-notch"></div>
              <div class="phone-screen">
-               <img src="images/appmockups/4.PNG" alt="Ingrediensdatabas i Makromat med tusentals livsmedel" loading="lazy">
+               <img src="images/appmockups/4.PNG" alt="Makromat food database" loading="lazy">
              </div>
            </div>
-           <h2>Ingrediensdatabas</h2>
-           <p>Stor svensk databas med tusentals livsmedel och dess näringsvärden.</p>
+           <h2 data-i18n="feature3Title">Ingrediensdatabas</h2>
+           <p data-i18n="feature3Desc">Stor svensk databas med tusentals livsmedel och dess näringsvärden.</p>
          </article>
          
          <article class="phone-item">
            <div class="phone-mockup">
              <div class="phone-notch"></div>
              <div class="phone-screen">
-               <img src="images/appmockups/3.PNG" alt="Makromat app statistik och uppföljning" loading="lazy">
+               <img src="images/appmockups/3.PNG" alt="Makromat community" loading="lazy">
              </div>
            </div>
-           <h2>Community</h2>
-           <p>Följ andra användare, dela dina recept och bli inspirerad av andras träningsresor.</p>
+           <h2 data-i18n="feature4Title">Community</h2>
+           <p data-i18n="feature4Desc">Följ andra användare, dela dina recept och bli inspirerad av andras träningsresor.</p>
          </article>
        </div>
       
       <div class="features-list">
-        <p class="features-title">Plus mycket mer</p>
+        <p class="features-title" data-i18n="featuresMore">Plus mycket mer</p>
         <div class="features-box">
           <ul class="features-columns">
-            <li class="feature-item">Följ & skapa egna kostscheman</li>
-            <li class="feature-item">Dagbok med historik</li>
-            <li class="feature-item">Spara återkommande registreringar och matvaror</li>
-            <li class="feature-item">Skapa recept från text, skärmdump eller länk</li>
-            <li class="feature-item">Veckovis AI-sammanfattning</li>
-            
-            <li class="feature-item">Tracka din viktutveckling över tid</li>
-            <li class="feature-item">Synkronisering med Apple Health</li>
-            <li class="feature-item">Detaljerad statistik och grafer</li>
-            <li class="feature-item">Modifiera alla recept hur du vill</li>
-            <li class="feature-item">... och mycket mer!</li>
+            <li class="feature-item" data-i18n="feat1">Följ & skapa egna kostscheman</li>
+            <li class="feature-item" data-i18n="feat2">Dagbok med historik</li>
+            <li class="feature-item" data-i18n="feat3">Spara återkommande registreringar och matvaror</li>
+            <li class="feature-item" data-i18n="feat4">Skapa recept från text, skärmdump eller länk</li>
+            <li class="feature-item" data-i18n="feat5">Veckovis AI-sammanfattning</li>
+            <li class="feature-item" data-i18n="feat6">Tracka din viktutveckling över tid</li>
+            <li class="feature-item" data-i18n="feat7">Synkronisering med Apple Health</li>
+            <li class="feature-item" data-i18n="feat8">Detaljerad statistik och grafer</li>
+            <li class="feature-item" data-i18n="feat9">Modifiera alla recept hur du vill</li>
+            <li class="feature-item" data-i18n="feat10">... och mycket mer!</li>
           </ul>
         </div>
       </div>
@@ -776,21 +797,21 @@
     <div class="about-container">
       <div class="about-section">
         <div class="about-header">
-          <h2>Om Makromat</h2>
+          <h2 data-i18n="aboutTitle">Om Makromat</h2>
         </div>
         <div class="about-content">
-          <p>Makromat skapades för att göra makroräkning enkelt och tillgängligt för alla. Vi tror på att hålla det enkelt - du ska kunna äta vanlig mat oavsett om du vill gå upp, ner eller hålla vikten.</p>
-          <p>Appen ger dig alla verktyg du behöver för att spåra dina makron, skapa recept och dela med community. Allt på ett ställe, enkelt och intuitivt.</p>
+          <p data-i18n="aboutP1">Makromat skapades för att göra makroräkning enkelt och tillgängligt för alla. Vi tror på att hålla det enkelt - du ska kunna äta vanlig mat oavsett om du vill gå upp, ner eller hålla vikten.</p>
+          <p data-i18n="aboutP2">Appen ger dig alla verktyg du behöver för att spåra dina makron, skapa recept och dela med community. Allt på ett ställe, enkelt och intuitivt.</p>
         </div>
       </div>
       
       <div class="about-section">
         <div class="about-header">
-          <h2>Vad vi vill uppnå</h2>
+          <h2 data-i18n="goalTitle">Vad vi vill uppnå</h2>
         </div>
         <div class="about-content">
-          <p>Vi vill skapa en plattform där alla kan nå sina tränings- och hälsomål utan komplicerade system eller dyra prenumerationer.</p>
-          <p>Målet är att ge mervärde i allt, där du som användare alltid får ut mer än du betalar för. Genom en stor databas, smarta verktyg och en engagerad community hjälper vi dig att nå dina mål.</p>
+          <p data-i18n="goalP1">Vi vill skapa en plattform där alla kan nå sina tränings- och hälsomål utan komplicerade system eller dyra prenumerationer.</p>
+          <p data-i18n="goalP2">Målet är att ge mervärde i allt, där du som användare alltid får ut mer än du betalar för. Genom en stor databas, smarta verktyg och en engagerad community hjälper vi dig att nå dina mål.</p>
         </div>
       </div>
     </div>
@@ -806,23 +827,179 @@
         Support <br> <a href="mailto:michael@makromat.app">michael@makromat.app</a>
       </div>
       <div class="footer-links">
-        <a href="https://apps.apple.com/se/app/makromat-proteinr%C3%A4knare/id6447565445" target="_blank" rel="noopener">Ladda ner</a>
-        <a href="terms.html">Användarvillkor</a>
-        <a href="privacy.html">Integritetspolicy</a>
+        <a href="https://apps.apple.com/se/app/makromat-proteinr%C3%A4knare/id6447565445" target="_blank" rel="noopener" data-i18n="download">Ladda ner</a>
+        <a href="terms.html" data-i18n="footerTerms">Användarvillkor</a>
+        <a href="privacy.html" data-i18n="footerPrivacy">Integritetspolicy</a>
       </div>
       <div class="footer-copyright">
         &copy; 2025 Novamitech AB
       </div>
-      <div class="footer-seo">
+      <div class="footer-seo" data-i18n="footerSeo">
         Makromat - Sveriges bästa makroräknare och kaloriräknare för träning, viktminskning och muskeluppbyggnad. Räkna makron, spåra protein, kolhydrater och fett, upptäck hälsosamma recept och dela med community.
       </div>
     </div>
   </footer>
 
   <script>
+    var translations = {
+      sv: {
+        _title: 'Makromat - Makroräknare & Kaloriräknare | Räkna makron och upptäck recept',
+        _metaDesc: 'Makromat - Sveriges bästa app för makroräkning och kaloriräkning. Spåra protein, kolhydrater och fett, upptäck recept och nå dina träningsmål. Gratis att ladda ner!',
+        _ogTitle: 'Makromat - Räkna makron, upptäck recept och nå dina mål',
+        _ogDesc: 'Sveriges bästa app för makroräkning. Spåra makron, upptäck recept och dela dina favoriter med en community som brinner för träning och hälsa.',
+        _twitterDesc: 'Sveriges bästa app för makroräkning. Spåra makron, upptäck recept och dela med community.',
+        _ogLocale: 'sv_SE',
+        navAbout: 'Om appen',
+        download: 'Ladda ner',
+        heroSubtitle: 'Räkna makron, upptäck recept och dela dina favoriter med en community som brinner för träning och hälsa',
+        featuresTitle: 'Funktioner',
+        feature1Title: 'Enkel makroräkning',
+        feature1Desc: 'Tracka med bild, text, databas, streckkod eller manuellt',
+        feature2Title: 'Skapa recept',
+        feature2Desc: 'Använd vår databas & AI-verktyg för att snabbt skapa egna recept med automatisk näringsberäkning.',
+        feature3Title: 'Ingrediensdatabas',
+        feature3Desc: 'Stor svensk databas med tusentals livsmedel och dess näringsvärden.',
+        feature4Title: 'Community',
+        feature4Desc: 'Följ andra användare, dela dina recept och bli inspirerad av andras träningsresor.',
+        featuresMore: 'Plus mycket mer',
+        feat1: 'Följ & skapa egna kostscheman',
+        feat2: 'Dagbok med historik',
+        feat3: 'Spara återkommande registreringar och matvaror',
+        feat4: 'Skapa recept från text, skärmdump eller länk',
+        feat5: 'Veckovis AI-sammanfattning',
+        feat6: 'Tracka din viktutveckling över tid',
+        feat7: 'Synkronisering med Apple Health',
+        feat8: 'Detaljerad statistik och grafer',
+        feat9: 'Modifiera alla recept hur du vill',
+        feat10: '... och mycket mer!',
+        aboutTitle: 'Om Makromat',
+        aboutP1: 'Makromat skapades för att göra makroräkning enkelt och tillgängligt för alla. Vi tror på att hålla det enkelt - du ska kunna äta vanlig mat oavsett om du vill gå upp, ner eller hålla vikten.',
+        aboutP2: 'Appen ger dig alla verktyg du behöver för att spåra dina makron, skapa recept och dela med community. Allt på ett ställe, enkelt och intuitivt.',
+        goalTitle: 'Vad vi vill uppnå',
+        goalP1: 'Vi vill skapa en plattform där alla kan nå sina tränings- och hälsomål utan komplicerade system eller dyra prenumerationer.',
+        goalP2: 'Målet är att ge mervärde i allt, där du som användare alltid får ut mer än du betalar för. Genom en stor databas, smarta verktyg och en engagerad community hjälper vi dig att nå dina mål.',
+        footerTerms: 'Användarvillkor',
+        footerPrivacy: 'Integritetspolicy',
+        footerSeo: 'Makromat - Sveriges bästa makroräknare och kaloriräknare för träning, viktminskning och muskeluppbyggnad. Räkna makron, spåra protein, kolhydrater och fett, upptäck hälsosamma recept och dela med community.'
+      },
+      en: {
+        _title: 'Makromat - Macro & Calorie Counter | Track macros and discover recipes',
+        _metaDesc: 'Makromat - The best app for macro and calorie tracking. Track protein, carbs, and fat, discover recipes, and reach your fitness goals. Free to download!',
+        _ogTitle: 'Makromat - Track macros, discover recipes, and reach your goals',
+        _ogDesc: 'The best app for macro tracking. Track macros, discover recipes, and share your favorites with a community passionate about fitness and health.',
+        _twitterDesc: 'The best app for macro tracking. Track macros, discover recipes, and share with the community.',
+        _ogLocale: 'en_US',
+        navAbout: 'About',
+        download: 'Download',
+        heroSubtitle: 'Track macros, discover recipes, and share your favorites with a community passionate about fitness and health',
+        featuresTitle: 'Features',
+        feature1Title: 'Easy macro tracking',
+        feature1Desc: 'Track with photos, text, database, barcode, or manually',
+        feature2Title: 'Create recipes',
+        feature2Desc: 'Use our database & AI tools to quickly create your own recipes with automatic nutrition calculations.',
+        feature3Title: 'Food database',
+        feature3Desc: 'Large database with thousands of foods and their nutritional values.',
+        feature4Title: 'Community',
+        feature4Desc: 'Follow other users, share your recipes, and get inspired by others\' fitness journeys.',
+        featuresMore: 'Plus much more',
+        feat1: 'Follow & create custom meal plans',
+        feat2: 'Journal with history',
+        feat3: 'Save recurring entries and foods',
+        feat4: 'Create recipes from text, screenshot, or link',
+        feat5: 'Weekly AI summary',
+        feat6: 'Track your weight over time',
+        feat7: 'Apple Health sync',
+        feat8: 'Detailed statistics and graphs',
+        feat9: 'Modify any recipe however you want',
+        feat10: '... and much more!',
+        aboutTitle: 'About Makromat',
+        aboutP1: 'Makromat was created to make macro tracking simple and accessible for everyone. We believe in keeping it simple — you should be able to eat regular food whether you want to gain, lose, or maintain weight.',
+        aboutP2: 'The app gives you all the tools you need to track your macros, create recipes, and share with the community. Everything in one place, simple and intuitive.',
+        goalTitle: 'What we want to achieve',
+        goalP1: 'We want to create a platform where everyone can reach their fitness and health goals without complicated systems or expensive subscriptions.',
+        goalP2: 'The goal is to provide value in everything, where you as a user always get more than you pay for. Through a large database, smart tools, and an engaged community, we help you reach your goals.',
+        footerTerms: 'Terms of Service',
+        footerPrivacy: 'Privacy Policy',
+        footerSeo: 'Makromat - The best macro counter and calorie counter for fitness, weight loss, and muscle building. Track macros, protein, carbs, and fat, discover healthy recipes, and share with the community.'
+      },
+      es: {
+        _title: 'Makromat - Contador de Macros y Calorías | Cuenta macros y descubre recetas',
+        _metaDesc: 'Makromat - La mejor app para contar macros y calorías. Registra proteínas, carbohidratos y grasas, descubre recetas y alcanza tus objetivos fitness. ¡Descarga gratis!',
+        _ogTitle: 'Makromat - Cuenta macros, descubre recetas y alcanza tus metas',
+        _ogDesc: 'La mejor app para contar macros. Registra macros, descubre recetas y comparte tus favoritas con una comunidad apasionada por el fitness y la salud.',
+        _twitterDesc: 'La mejor app para contar macros. Registra macros, descubre recetas y comparte con la comunidad.',
+        _ogLocale: 'es_ES',
+        navAbout: 'Acerca de',
+        download: 'Descargar',
+        heroSubtitle: 'Cuenta macros, descubre recetas y comparte tus favoritas con una comunidad apasionada por el fitness y la salud',
+        featuresTitle: 'Funciones',
+        feature1Title: 'Conteo de macros fácil',
+        feature1Desc: 'Registra con foto, texto, base de datos, código de barras o manualmente',
+        feature2Title: 'Crea recetas',
+        feature2Desc: 'Usa nuestra base de datos y herramientas de IA para crear tus propias recetas con cálculo nutricional automático.',
+        feature3Title: 'Base de datos de alimentos',
+        feature3Desc: 'Gran base de datos con miles de alimentos y sus valores nutricionales.',
+        feature4Title: 'Comunidad',
+        feature4Desc: 'Sigue a otros usuarios, comparte tus recetas e inspírate en los viajes fitness de otros.',
+        featuresMore: 'Y mucho más',
+        feat1: 'Sigue y crea planes de comidas',
+        feat2: 'Diario con historial',
+        feat3: 'Guarda registros y alimentos recurrentes',
+        feat4: 'Crea recetas desde texto, captura o enlace',
+        feat5: 'Resumen semanal con IA',
+        feat6: 'Sigue tu peso a lo largo del tiempo',
+        feat7: 'Sincronización con Apple Health',
+        feat8: 'Estadísticas detalladas y gráficos',
+        feat9: 'Modifica cualquier receta como quieras',
+        feat10: '... ¡y mucho más!',
+        aboutTitle: 'Sobre Makromat',
+        aboutP1: 'Makromat fue creada para hacer el conteo de macros simple y accesible para todos. Creemos en mantenerlo simple — deberías poder comer comida normal sin importar si quieres subir, bajar o mantener tu peso.',
+        aboutP2: 'La app te da todas las herramientas que necesitas para rastrear tus macros, crear recetas y compartir con la comunidad. Todo en un solo lugar, simple e intuitivo.',
+        goalTitle: 'Lo que queremos lograr',
+        goalP1: 'Queremos crear una plataforma donde todos puedan alcanzar sus metas de fitness y salud sin sistemas complicados ni suscripciones costosas.',
+        goalP2: 'El objetivo es dar valor en todo, donde tú como usuario siempre obtienes más de lo que pagas. A través de una gran base de datos, herramientas inteligentes y una comunidad activa, te ayudamos a alcanzar tus metas.',
+        footerTerms: 'Términos de servicio',
+        footerPrivacy: 'Política de privacidad',
+        footerSeo: 'Makromat - El mejor contador de macros y calorías para fitness, pérdida de peso y desarrollo muscular. Cuenta macros, proteínas, carbohidratos y grasas, descubre recetas saludables y comparte con la comunidad.'
+      }
+    };
+
+    function getLocale() {
+      var stored = localStorage.getItem('makromat_locale');
+      if (stored && translations[stored]) return stored;
+      var browser = (navigator.language || 'en').split('-')[0];
+      return translations[browser] ? browser : 'en';
+    }
+
+    function applyLocale(lang) {
+      var t = translations[lang];
+      document.documentElement.lang = lang;
+      document.title = t._title;
+      document.querySelector('meta[name="description"]').content = t._metaDesc;
+      document.querySelector('meta[property="og:title"]').content = t._ogTitle;
+      document.querySelector('meta[property="og:description"]').content = t._ogDesc;
+      document.querySelector('meta[name="twitter:title"]').content = t._ogTitle;
+      document.querySelector('meta[name="twitter:description"]').content = t._twitterDesc;
+      document.querySelector('meta[property="og:locale"]').content = t._ogLocale;
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+      document.getElementById('lang-select').value = lang;
+    }
+
+    (function() {
+      var lang = getLocale();
+      applyLocale(lang);
+      document.getElementById('lang-select').addEventListener('change', function() {
+        localStorage.setItem('makromat_locale', this.value);
+        applyLocale(this.value);
+      });
+    })();
+
     // Navigation scroll effect
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+      var nav = document.getElementById('nav');
       if (window.scrollY > 50) {
         nav.classList.add('scrolled');
       } else {
@@ -832,19 +1009,19 @@
 
     // Deep link handling
     function handleDeepLink() {
-      const path = window.location.pathname;
-      const search = window.location.search;
+      var path = window.location.pathname;
+      var search = window.location.search;
       
-      const params = getQueryParams();
+      var params = getQueryParams();
       
       if (params.name) {
-        document.querySelector('meta[property="og:title"]')?.setAttribute('content', `Recept: ${params.name}`);
+        document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Recept: ' + params.name);
       }
       
       if (path.startsWith('/recipe/')) {
-        const appUrl = `makromat://${path}${search}`;
+        var appUrl = 'makromat://' + path + search;
         window.location.href = appUrl;
-        setTimeout(() => {
+        setTimeout(function() {
           window.location.href = 'https://apps.apple.com/se/app/makromat-proteinr%C3%A4knare/id6447565445';
         }, 2000);
         return;
@@ -852,13 +1029,13 @@
     }
     
     function getQueryParams() {
-      const params = {};
-      const queryString = window.location.search.substring(1);
-      const pairs = queryString.split("&");
+      var params = {};
+      var queryString = window.location.search.substring(1);
+      var pairs = queryString.split('&');
       
-      for (const pair of pairs) {
-        const [key, value] = pair.split("=");
-        if (key) params[key] = decodeURIComponent(value || '');
+      for (var i = 0; i < pairs.length; i++) {
+        var parts = pairs[i].split('=');
+        if (parts[0]) params[parts[0]] = decodeURIComponent(parts[1] || '');
       }
       
       return params;
